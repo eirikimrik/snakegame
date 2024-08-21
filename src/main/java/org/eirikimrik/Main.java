@@ -6,13 +6,20 @@ public class Main {
     public static void main(String[] args) {
 
         JFrame frame = new JFrame("My first frame");
-        GamePanel panel = new GamePanel();
+        GamePanel gamePanel = new GamePanel();
 
-        frame.setSize(500,500);
+
         frame.setResizable(false);
-        frame.add(panel);
+        frame.add(gamePanel);
+        frame.pack();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
+
+
         frame.setVisible(true);
+
+        gamePanel.startGameThread();
+
+
     }
 }

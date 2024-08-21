@@ -14,10 +14,15 @@ public class GamePanel extends JPanel implements Runnable{
     Thread gameThread;
     KeyInputHandler keyInputHandler = new KeyInputHandler();
 
+    int coordinateX = (int) (Math.random() * 450);
+    int coordinateY = (int) (Math.random() * 450);
+
+    int movement = 1;
+
     public GamePanel(){
-        this.setBackground(Color.pink);
+        this.setBackground(Color.black);
         this.setDoubleBuffered(true);
-        this.setPreferredSize(new Dimension(500,500));
+        this.setPreferredSize(new Dimension(1000,1000));
         this.addKeyListener(keyInputHandler);
         this.setFocusable(true);
     }
@@ -56,8 +61,33 @@ public class GamePanel extends JPanel implements Runnable{
     public void paintComponent(Graphics g){
         super.paintComponent(g);
 
-        g.setColor(Color.blue);
-        g.fillRect(100,100,30,30);
+        g.setColor(Color.red);
+        g.fillRect(coordinateX,coordinateY,10,10);
         g.dispose();
+        moveRect();
+
+
+
     }
+
+    private void moveRect() {
+
+        if(keyInputHandler.upPressed){
+            this.coordinateY = coordinateY - movement;
+        }
+        if(keyInputHandler.downPressed){
+            this.coordinateY = coordinateY + movement;
+        }
+
+        if(keyInputHandler.rightPressed){
+            this.coordinateX = coordinateX + movement;
+        }
+
+        if(keyInputHandler.leftPressed){
+            this.coordinateX = coordinateX - movement;
+        }
+
+    }
+
+
 }

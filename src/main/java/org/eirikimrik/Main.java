@@ -5,7 +5,7 @@ import javax.swing.*;
 public class Main {
     public static void main(String[] args) {
 
-        JFrame frame = new JFrame("My first frame");
+        JFrame frame = new JFrame("Snake Game");
         GamePanel gamePanel = new GamePanel();
 
 
@@ -14,8 +14,6 @@ public class Main {
         frame.pack();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
-
-
         frame.setVisible(true);
 
         gamePanel.startGameThread();
